@@ -29,7 +29,6 @@ backend/.mvn/
 backend/.classpath
 backend/.project
 backend/.settings/
-backend/src/main/resources/application.yml
 *.log
 
 # Misc
