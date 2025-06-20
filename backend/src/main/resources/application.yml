@@ -2,7 +2,7 @@ spring:
   application:
     name: backend
 server:
-  port: 8081
+  port: 8080
 
 openrouter:
   endpoint: https://openrouter.ai/api/v1/chat/completions
