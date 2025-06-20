@@ -1,4 +1,4 @@
-# Persona Chat Grid
+# Chat Grid
 
 A full-stack, multi-model AI chat application that allows users to interact with multiple AI models (e.g., GPT-4, Claude, Gemini, Llama, DeepSeek) simultaneously. The project features a modern, responsive frontend and a robust Java Spring Boot backend.
 
@@ -34,7 +34,10 @@ A full-stack, multi-model AI chat application that allows users to interact with
 ### Prerequisites
 - Node.js (v18+ recommended)
 - Java 17+
-- (Optional) Bun package manager
+
+### application.properties
+
+
 
 ### Backend Setup
 1. `cd backend`
@@ -51,12 +54,12 @@ A full-stack, multi-model AI chat application that allows users to interact with
 3. Start the frontend:
    - With npm: `npm run dev`
    - Or with bun: `bun run dev`
-4. The frontend will start on [http://localhost:8082](http://localhost:8082)
+4. The frontend will start on [http://localhost:5173/](http://localhost:5173/)
 
 ---
 
 ## Usage
-- Open [http://localhost:8082](http://localhost:8082) in your browser.
+- Open [http://localhost:5173/](http://localhost:5173/) in your browser.
 - Enter your prompt in the text box.
 - Select one or more AI models from the dropdown.
 - Click "Send" to get responses from the selected models.
