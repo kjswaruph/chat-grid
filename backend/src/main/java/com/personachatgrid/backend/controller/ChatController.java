@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:5173/") // Adjust for your frontend URL
+@CrossOrigin(origins = "https://chat-grid.vercel.app/") // Adjust for your frontend URL
 @Log4j2
 public class ChatController {
 
