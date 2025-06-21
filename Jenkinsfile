@@ -9,7 +9,7 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('backend') {
-                    sh 'docker build -t my-backend .'
+                    bat 'docker build -t my-backend .'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('MySonarQube') {
-                    sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner"
+                    bat "${SONAR_SCANNER_HOME}/bin/sonar-scanner"
                 }
             }
         }
