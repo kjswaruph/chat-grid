@@ -2,29 +2,34 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3'  // Use the name you configured in Global Tool Configuration
+        maven 'Maven_3'
+    }
+
+    environment {
+        MAVEN_OPTS = "-Dmaven.repo.local=C:\\jenkins1\\maven-repo"
     }
 
     stages {
         stage('Build Backend') {
             steps {
                 dir('backend') {
-                    bat 'mvn clean package -DskipTests'
+                    bat 'mvn clean install -DskipTests'
                 }
             }
         }
 
-        stage('Install Frontend Dependencies') {
+        stage('Build Frontend') {
             steps {
                 dir('frontend') {
-                    bat 'npm install' // or yarn install if applicable
+                    bat 'npm install'
+                    bat 'npm run build'
                 }
             }
         }
 
-        stage('Run SonarQube Analysis') {
+        stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('MySonarQube') {
+                withSonarQubeEnv('My SonarQube Server') {
                     bat 'sonar-scanner'
                 }
             }
