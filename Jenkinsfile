@@ -1,25 +1,27 @@
 pipeline {
     agent any
 
-    environment {
-        SONAR_SCANNER_HOME = tool 'SonarScanner'
-    }
-
-
-     stages {
+    stages {
         stage('Build Backend') {
             steps {
                 dir('backend') {
-                    bat 'docker build -t my-backend .'
+                    bat 'mvn clean package -DskipTests'
                 }
             }
         }
 
-         
-        stage('SonarQube Analysis') {
+        stage('Install Frontend Dependencies') {
+            steps {
+                dir('frontend') {
+                    bat 'npm install' // or yarn install if applicable
+                }
+            }
+        }
+
+        stage('Run SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('MySonarQube') {
-                    bat "${SONAR_SCANNER_HOME}/bin/sonar-scanner"
+                    bat 'sonar-scanner'
                 }
             }
         }
