@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven3'  // Use the name you configured in Global Tool Configuration
+    }
+
     stages {
         stage('Build Backend') {
             steps {
