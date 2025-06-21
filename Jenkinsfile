@@ -5,7 +5,8 @@ pipeline {
         SONAR_SCANNER_HOME = tool 'SonarScanner'
     }
 
-    stages {
+
+     stages {
         stage('Build Backend') {
             steps {
                 dir('backend') {
@@ -14,14 +15,7 @@ pipeline {
             }
         }
 
-        stage('Build Backend') {
-            steps {
-                dir('backend') {
-                    bat 'docker build -t my-backend .'
-                }
-            }
-        }
-
+         
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('MySonarQube') {
