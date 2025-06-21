@@ -17,7 +17,7 @@ pipeline {
         stage('Build Frontend') {
             steps {
                 dir('frontend') {
-                    sh 'docker build -t my-frontend .'
+                    bat 'docker build -t my-frontend .'
                 }
             }
         }
